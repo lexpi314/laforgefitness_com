@@ -32,25 +32,61 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-6"
+            className="mb-6 relative"
           >
-            <Image
-              src="/assets/Logo-La-Forge-Final.png"
-              alt="La Forge Fitness"
-              width={600}
-              height={200}
-              className="mx-auto max-w-full h-auto"
-              priority
-              onError={(e) => {
-                // Fallback vers le texte si le logo ne charge pas
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const fallbackText = target.nextElementSibling as HTMLElement;
-                if (fallbackText) {
-                  fallbackText.style.display = 'block';
-                }
+            <motion.div
+              animate={{
+                scale: [1, 1.02, 1],
+                filter: [
+                  'drop-shadow(0 0 0px rgba(234, 91, 12, 0))',
+                  'drop-shadow(0 0 20px rgba(234, 91, 12, 0.3))',
+                  'drop-shadow(0 0 0px rgba(234, 91, 12, 0))'
+                ]
               }}
-            />
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="inline-block"
+            >
+              <Image
+                src="/assets/Logo-La-Forge-Final.png"
+                alt="La Forge Fitness"
+                width={600}
+                height={200}
+                className="mx-auto max-w-full h-auto"
+                priority
+                onError={(e) => {
+                  // Fallback vers le texte si le logo ne charge pas
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallbackText = target.nextElementSibling as HTMLElement;
+                  if (fallbackText) {
+                    fallbackText.style.display = 'block';
+                  }
+                }}
+              />
+            </motion.div>
+            
+            {/* Effet de particules orange autour du logo */}
+            <motion.div
+              animate={{
+                opacity: [0.3, 0.8, 0.3],
+                scale: [0.8, 1.1, 0.8],
+                rotate: [0, 5, 0]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+              }}
+              className="absolute inset-0 pointer-events-none"
+            >
+              <div className="w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent rounded-full blur-xl"></div>
+            </motion.div>
+            
             {/* Fallback texte */}
             <h1 
               className="hero-title mb-6 leading-none hidden"

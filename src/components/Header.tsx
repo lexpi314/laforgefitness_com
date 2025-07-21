@@ -27,14 +27,23 @@ export default function Header() {
             transition={{ duration: 0.5 }}
             className="flex-shrink-0"
           >
-            <Image
-              src="/assets/Logo-Typo-La-Forge-Final.png"
-              alt="La Forge Fitness"
-              width={200}
-              height={60}
-              className="h-12 w-auto"
-              priority
-            />
+            <motion.div
+              whileHover={{
+                scale: 1.05,
+                filter: 'drop-shadow(0 0 8px rgba(234, 91, 12, 0.4))'
+              }}
+              transition={{ duration: 0.3 }}
+              className="inline-block"
+            >
+              <Image
+                src="/assets/Logo-Typo-La-Forge-Final.png"
+                alt="La Forge Fitness"
+                width={200}
+                height={60}
+                className="h-12 w-auto"
+                priority
+              />
+            </motion.div>
           </motion.div>
 
           {/* Navigation Desktop */}

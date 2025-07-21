@@ -69,13 +69,22 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Image
-                src="/assets/Logo-Typo-La-Forge-Final.png"
-                alt="La Forge Fitness"
-                width={250}
-                height={80}
-                className="h-16 w-auto mb-4"
-              />
+              <motion.div
+                whileHover={{
+                  scale: 1.02,
+                  filter: 'drop-shadow(0 0 12px rgba(234, 91, 12, 0.3))'
+                }}
+                transition={{ duration: 0.3 }}
+                className="inline-block"
+              >
+                <Image
+                  src="/assets/Logo-Typo-La-Forge-Final.png"
+                  alt="La Forge Fitness"
+                  width={250}
+                  height={80}
+                  className="h-16 w-auto mb-4"
+                />
+              </motion.div>
               <p className="text-white/70 mb-6 max-w-md">
                 La Forge Fitness - Votre destination pour un fitness d&apos;exception. 
                 Forgez votre corps, sculptez votre esprit dans une atmosphère unique 
