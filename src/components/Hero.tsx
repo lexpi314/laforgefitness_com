@@ -27,17 +27,40 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto"
         >
-          {/* Main Title */}
-          <motion.h1
+          {/* Main Logo */}
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-title mb-6 leading-none"
+            className="mb-6"
           >
-            LA FORGE
-            <br />
-            FITNESS
-          </motion.h1>
+            <Image
+              src="/assets/Logo-La-Forge-Final.png"
+              alt="La Forge Fitness"
+              width={600}
+              height={200}
+              className="mx-auto max-w-full h-auto"
+              priority
+              onError={(e) => {
+                // Fallback vers le texte si le logo ne charge pas
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const fallbackText = target.nextElementSibling as HTMLElement;
+                if (fallbackText) {
+                  fallbackText.style.display = 'block';
+                }
+              }}
+            />
+            {/* Fallback texte */}
+            <h1 
+              className="hero-title mb-6 leading-none hidden"
+              style={{ display: 'none' }}
+            >
+              LA FORGE
+              <br />
+              FITNESS
+            </h1>
+          </motion.div>
 
           {/* Subtitle */}
           <motion.p

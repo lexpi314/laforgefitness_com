@@ -16,17 +16,17 @@ module.exports = {
         background: '#000000',
         foreground: '#ffffff',
         primary: {
-          DEFAULT: '#FF4500', // Orange vif
-          50: '#FFF4ED',
-          100: '#FFE6D3',
-          200: '#FFC9A6',
-          300: '#FFA16E',
-          400: '#FF7234',
-          500: '#FF4500',
-          600: '#E63900',
-          700: '#CC2E00',
-          800: '#A62400',
-          900: '#801C00',
+          DEFAULT: '#EA5B0C', // Orange exact du logo
+          50: '#FEF7ED',
+          100: '#FDEBD3',
+          200: '#FBD3A6',
+          300: '#F8B26E',
+          400: '#F48A34',
+          500: '#EA5B0C',
+          600: '#D14A0A',
+          700: '#B03A08',
+          800: '#8E2E06',
+          900: '#742505',
         },
         secondary: {
           DEFAULT: '#1a1a1a',

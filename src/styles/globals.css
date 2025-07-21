@@ -35,7 +35,7 @@
   }
   
   .hero-title {
-    @apply font-trajan text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-white via-primary-200 to-primary bg-clip-text text-transparent;
+    @apply font-trajan text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-white via-primary-300 to-primary bg-clip-text text-transparent;
   }
   
   .section-title {
