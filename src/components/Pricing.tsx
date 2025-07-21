@@ -3,48 +3,52 @@
 import { motion } from 'framer-motion';
 // import { SubscribeForm, PricingTable } from 'desi-plus';
 
-// Simulation des plans en attendant l'intégration Desi+
+// Plans d'abonnement La Forge Fitness
 const pricingPlans = [
   {
-    id: 'starter',
-    name: 'Starter',
-    price: 29.99,
+    id: 'classic',
+    name: 'Classic',
+    price: 75,
     currency: '€',
     interval: 'monthly',
     popular: false,
+    engagement: true,
     features: [
       'Accès libre musculation',
       'Zone cardio illimitée',
       'Vestiaires et douches',
       'Application mobile',
-      'Accès 7j/7 de 6h à 22h'
+      'Accès 7j/7 de 6h à 22h',
+      'Cours collectifs inclus'
     ]
   },
   {
-    id: 'forge',
-    name: 'Forge',
-    price: 49.99,
+    id: 'pro',
+    name: 'Pro',
+    price: 85,
     currency: '€',
     interval: 'monthly',
     popular: true,
+    engagement: false,
     features: [
-      'Tout Starter inclus',
+      'Tout Classic inclus',
       'Accès 24h/24 7j/7',
       '2 séances coaching/mois',
       'Plan nutrition personnalisé',
       'Zone fonctionnelle premium',
-      'Invitations amis illimitées'
+      'Sans engagement'
     ]
   },
   {
-    id: 'elite',
-    name: 'Elite',
-    price: 79.99,
+    id: 'ultra',
+    name: 'Ultra',
+    price: 90,
     currency: '€',
     interval: 'monthly',
     popular: false,
+    engagement: false,
     features: [
-      'Tout Forge inclus',
+      'Tout Pro inclus',
       'Coaching personnel illimité',
       'Suivi complet nutrition',
       'Massages de récupération',
@@ -68,24 +72,18 @@ export default function Pricing() {
           <h2 className="section-title">ABONNEMENTS</h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
             Choisissez l&apos;abonnement qui correspond à vos ambitions. 
-            Tous nos plans incluent un accès libre et sans engagement.
+            Flexibilité totale avec nos offres sans engagement.
           </p>
           
-          <div className="flex items-center justify-center gap-4">
-            <span className="text-white">Mensuel</span>
-            <div className="relative">
-              <input type="checkbox" className="sr-only peer" id="billing-toggle" />
-              <label
-                htmlFor="billing-toggle"
-                className="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-secondary-700 px-0.5 outline-none transition-colors peer-checked:bg-primary peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary"
-              >
-                <span className="h-5 w-5 rounded-full bg-white shadow-sm transition-all peer-checked:ml-5"></span>
-              </label>
+          <div className="flex items-center justify-center gap-6 mb-8">
+            <div className="text-center">
+              <span className="text-white font-semibold">Avec engagement</span>
+              <div className="text-sm text-white/60">Tarif préférentiel</div>
             </div>
-            <span className="text-white">
-              Annuel 
-              <span className="text-primary text-sm ml-1">(-20%)</span>
-            </span>
+            <div className="text-center">
+              <span className="text-white font-semibold">Sans engagement</span>
+              <div className="text-sm text-white/60">Flexibilité totale</div>
+            </div>
           </div>
         </motion.div>
 
@@ -99,14 +97,23 @@ export default function Pricing() {
               viewport={{ once: true }}
               className="relative group"
             >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+              {/* Badges */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+                {plan.popular && (
                   <span className="bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold">
                     Le plus populaire
                   </span>
-                </div>
-              )}
+                )}
+                {plan.engagement ? (
+                  <span className="bg-secondary-700 text-white/80 px-3 py-1 rounded-full text-xs">
+                    Avec engagement
+                  </span>
+                ) : (
+                  <span className="bg-green-600 text-white px-3 py-1 rounded-full text-xs">
+                    Sans engagement
+                  </span>
+                )}
+              </div>
 
               <div className={`card h-full ${plan.popular ? 'border-primary-500 bg-primary-500/5' : ''} relative overflow-hidden`}>
                 {/* Background Pattern */}
@@ -124,7 +131,9 @@ export default function Pricing() {
                       <span className="text-4xl font-bold text-primary">{plan.price}</span>
                       <span className="text-white/70 ml-1">{plan.currency}/mois</span>
                     </div>
-                    <p className="text-sm text-white/60 mt-2">Sans engagement</p>
+                    <p className="text-sm text-white/60 mt-2">
+                      {plan.engagement ? 'Avec engagement' : 'Sans engagement'}
+                    </p>
                   </div>
 
                   {/* Features */}
@@ -185,13 +194,13 @@ export default function Pricing() {
                 <svg className="h-5 w-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                Sans engagement
+                Offres flexibles
               </div>
               <div className="flex items-center">
                 <svg className="h-5 w-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                Annulation gratuite
+                Coaching inclus
               </div>
               <div className="flex items-center">
                 <svg className="h-5 w-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
